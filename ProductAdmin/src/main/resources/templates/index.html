@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Manager</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+<body bgcolor="#e8f4f8">
+<div align="center">
+	<div style="border-style:groove ;width: 400px;background-color: #276b80;color:white;border-radius: 13px;"><h1>Product Manager</h1></div><br>
+	<div style="width: 100px;border-style: double;margin-left: 600px">
+	<button onclick="location.href='new'" style="text-decoration:none"><font color="black" ><b>Add New Product</b></font></button>
+	</div><br>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr style="color: white; background-color: #276b80">
+				
+				<th >Name</th>
+				<th>Price</th>
+				<th>Category</th>
+				<th>Information</th>
+				<th>Update And Delete</th>
+
+			</tr>	
+		</thead>
+		<tbody>
+			<tr th:each="product : ${listProducts}">
+			
+			<td th:text="${product.name}">Name</td>
+			<td th:text="${product.price}">Price</td>
+			<td th:text="${product.category}">Category</td>
+			<td th:text="${product.info}">Info</td>
+			<td>
+				<a style="text-decoration:none" th:href="@{'/edit/' + ${product.id}}">Update</a>
+				&nbsp; &nbsp; &nbsp; &nbsp; 							
+				<a style="text-decoration:none" th:href="@{'/delete/' + ${product.id}}" 
+				onclick="if (!(confirm('Are you sure you want to delete this shit?'))) return false">Delete</a>
+				
+			</td>
+			</tr>
+		</tbody>
+	</table><br>
+	<div style="width: 60px;border-style: double;margin-left: 600px">
+	<button onclick="location.href='logout'" style="text-decoration:none;"><font color="black" ><b>Logout</b></font></button>
+	</div> 
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+  <head>
+    <title tiles:fragment="title">Messages : Create</title>
+  </head>
+  <body  bgcolor="#e8f4f8">
+    <div tiles:fragment="content" align="center" style="margin-top: 100px">
+        <form name="f" th:action="@{/login}" method="post">               
+            <fieldset style="height: 320px; width: 300px">
+                <legend><div style="border-style:solid;background-color:skyblue ;border-radius: 15px; height: 60px;width: 400px">
+                <font size="20px" style="font-style: italic;color: whtie"><b>Login, You Bitch!</b></font></div></legend>
+                 <div class="login-form">
+                <div th:if="${param.error}" class="alert alert-error">    
+                  <b>  Wrong username or password, You Fucking Theif !</b>
+                </div>
+               	<div  th:if="${param.logout}" >
+                <div class="alert alert-info" th:text="#{alert.logged.out}">              
+                </div>
+                </div>
+                </div>
+                <br><br>
+                <label for="username"><font size="5px">Username</font></label>
+                <input type="text" id="username" name="username" style="height: 40px;width: 200px" /><br><br>       
+                <label for="password"><font size="5px">Password </font></label>
+                <input type="password" id="password" name="password" style="height: 40px ;width: 200px" /><br><br>   
+                <div class="form-actions">
+                    <button type="submit" class="btn" style="height: 80px; width: 130px; border-radius: 35px;border-style:groove;  ;"><b><font size="5px">Log in Weeb!</font></b></button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+  </body>
+</html>
